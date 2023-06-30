@@ -3,51 +3,121 @@
 <head>
   <title>Trappist System: A Journey Through the Stars</title>
   <style>
-    /* Add your CSS styling here */
+    /* Global Styles */
+    body {
+      font-family: Arial, sans-serif;
+    }
+
+    /* Slides Container */
+    .slides-container {
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background-color: #000;
+      color: #fff;
+    }
+
+    /* Slide */
+    .slide {
+      padding: 2rem;
+      text-align: center;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+    }
+
+    .slide.active {
+      opacity: 1;
+    }
+
+    /* Slide Content Styles */
+    h1, h2, p {
+      margin: 0;
+    }
+
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    p {
+      font-size: 1.5rem;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      margin-bottom: 1rem;
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+    }
   </style>
 </head>
 <body>
-  <div class="slide">
-    <h1>Trappist System: A Journey Through the Stars</h1>
-    <img src="trappist.jpg" alt="Trappist System" />
-  </div>
+  <div class="slides-container">
+    <div class="slide active">
+      <h1>Trappist System: A Journey Through the Stars</h1>
+      <img src="trappist.jpg" alt="Trappist System" />
+    </div>
 
-  <div class="slide">
-    <h2>Introduction</h2>
-    <p>Welcome, fellow travelers, to the Trappist system!</p>
-    <p>Prepare to embark on an interstellar adventure filled with wonders and mysteries.</p>
-  </div>
+    <div class="slide">
+      <h2>Introduction</h2>
+      <p>Welcome, fellow travelers, to the Trappist system!</p>
+      <p>Prepare to embark on an interstellar adventure filled with wonders and mysteries.</p>
+    </div>
 
-  <div class="slide">
-    <h2>Planet 1: Exotic Beings</h2>
-    <img src="planet1.jpg" alt="Exotic Beings" />
-    <p>Our first stop takes us to a planet teeming with lifeforms beyond imagination.</p>
-    <p>Encounter exotic beings with vibrant colors, unique physiologies, and fascinating behaviors.</p>
-  </div>
+    <div class="slide">
+      <h2>Planet 1: Exotic Beings</h2>
+      <img src="planet1.jpg" alt="Exotic Beings" />
+      <p>Our first stop takes us to a planet teeming with lifeforms beyond imagination.</p>
+      <p>Encounter exotic beings with vibrant colors, unique physiologies, and fascinating behaviors.</p>
+    </div>
 
-  <div class="slide">
-    <h2>Planet 2: Dead Civilization</h2>
-    <img src="planet2.jpg" alt="Dead Civilization" />
-    <p>Prepare to explore the remnants of a once-thriving civilization.</p>
-    <p>Uncover the mysteries of their culture, architecture, and the reasons for their demise.</p>
-  </div>
+    <div class="slide">
+      <h2>Planet 2: Dead Civilization</h2>
+      <img src="planet2.jpg" alt="Dead Civilization" />
+      <p>Prepare to explore the remnants of a once-thriving civilization.</p>
+      <p>Uncover the mysteries of their culture, architecture, and the reasons for their demise.</p>
+    </div>
 
-  <div class="slide">
-    <h2>Planet 3: Evolving Intelligence</h2>
-    <img src="planet3.jpg" alt="Evolving Intelligence" />
-    <p>Witness the birth of intelligence on this remarkable planet.</p>
-    <p>Observe as primitive beings develop complex social structures and evolve their cognitive abilities.</p>
-  </div>
+    <div class="slide">
+      <h2>Planet 3: Evolving Intelligence</h2>
+      <img src="planet3.jpg" alt="Evolving Intelligence" />
+      <p>Witness the birth of intelligence on this remarkable planet.</p>
+      <p>Observe as primitive beings develop complex social structures and evolve their cognitive abilities.</p>
+    </div>
 
-  <div class="slide">
-    <h2>Conclusion</h2>
-    <p>Your journey through the Trappist system has been awe-inspiring.</p>
-    <p>Thank you for joining us on this adventure and expanding the boundaries of human knowledge.</p>
-    <p>Safe travels and may the wonders of the universe continue to captivate us all!</p>
-  </div>
+    <div class="slide">
+      <h2>Conclusion</h2>
+      <p>Your journey through the Trappist system has been awe-inspiring.</p>
+      <p>Thank you for joining us on
 
-  <script>
-    // Add any JavaScript code here if needed
-  </script>
+ this adventure and expanding the boundaries of human knowledge.</p>
+      <p>Safe travels and may the wonders of the universe continue to captivate us all!</p>
+    </div>
+
+    <script>
+      const slides = Array.from(document.getElementsByClassName('slide'));
+      let currentSlideIndex = 0;
+
+      function showSlide(index) {
+        slides.forEach((slide) => slide.classList.remove('active'));
+        slides[index].classList.add('active');
+      }
+
+      function showNextSlide() {
+        currentSlideIndex = (currentSlideIndex + 1) % slides.length;
+        showSlide(currentSlideIndex);
+      }
+
+      setInterval(showNextSlide, 8000); // Change slide every 8 seconds
+    </script>
+  </div>
 </body>
 </html>
